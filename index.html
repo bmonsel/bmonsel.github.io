@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋日之空-唯美日漫与治愈系视觉艺术鉴赏平台</title>
+    <meta name="description" content="秋日之空官方资源站，提供日本唯美视觉小说、动漫原画集及治愈系插画的高清鉴赏与资源整理，收录大量秋日、天空、校园题材的艺术作品。">
+    <meta name="keywords" content="秋日之空,日漫,视觉小说,插画,唯美,治愈系,动漫鉴赏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #e67e22;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --accent-blue: #3498db;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/seed/skyautumn/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.4);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .cat-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .cat-card p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Featured Section */
+        .featured {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .work-img {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .work-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .work-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .work-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .work-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .work-btn {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .work-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Quote/Intro Section */
+        .intro-section {
+            padding: 80px 0;
+            background-color: #f4f1ea;
+            text-align: center;
+        }
+
+        .quote-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+
+        .quote-text {
+            font-size: 22px;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            font-size: 15px;
+            display: none; /* Hidden by default, handled by JS */
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                秋日之空 <span>Visual Arts</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">原画鉴赏</a></li>
+                    <li><a href="#">同人作品</a></li>
+                    <li><a href="#">周边图集</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>捕捉秋日之空的色彩</h1>
+                <p>汇聚日本唯美视觉小说与动漫原画的高清视觉盛宴，探索自然光影与青春记忆的完美融合。</p>
+                <a href="#featured" class="cta-btn">开始浏览作品</a>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories container">
+            <div class="section-title">
+                <h2>探索分类</h2>
+                <p>根据您的兴趣，发现更多视觉灵感</p>
+            </div>
+            <div class="cat-grid">
+                <div class="cat-card">
+                    <span class="cat-icon">🍂</span>
+                    <h3>自然风光</h3>
+                    <p>秋日落叶、金色森林与蔚蓝天空</p>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🏫</span>
+                    <h3>校园生活</h3>
+                    <p>青春回忆、放学后的夕阳与教室</p>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🎨</span>
+                    <h3>插画艺术</h3>
+                    <p>水彩手绘、数字板绘与同人创作</p>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🎬</span>
+                    <h3>影视原声</h3>
+                    <p>经典日漫OST与视觉小说配乐</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works -->
+        <section id="featured" class="featured">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选推荐</h2>
+                    <p>本周最受欢迎的视觉艺术作品</p>
+                </div>
+                <div class="grid-3">
+                    <article class="work-card">
+                        <div class="work-img">
+                            <span class="work-tag">原画</span>
+                            <img src="https://picsum.photos/seed/autumn1/400/300.jpg" alt="秋日原画展示">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">落叶之约</h3>
+                            <p class="work-desc">描绘了主角在黄昏时分漫步于铺满金黄落叶的校园小径，光影交错的唯美场景。</p>
+                            <div class="work-meta">
+                                <span>作者: 风见</span>
+                                <a href="#" class="work-btn">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-img">
+                            <span class="work-tag">同人</span>
+                            <img src="https://picsum.photos/seed/autumn2/400/300.jpg" alt="天空主题插画">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">穹顶之下</h3>
+                            <p class="work-desc">以广阔的蓝天和漂浮的云朵为背景，表现了青春的辽阔与自由。</p>
+                            <div class="work-meta">
+                                <span>作者: 蓝羽</span>
+                                <a href="#" class="work-btn">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-img">
+                            <span class="work-tag">场景</span>
+                            <img src="https://picsum.photos/seed/autumn3/400/300.jpg" alt="校园教室场景">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">午后教室</h3>
+                            <p class="work-desc">阳光透过窗户洒在课桌上，营造出温暖而宁静的午后学习氛围。</p>
+                            <div class="work-meta">
+                                <span>作者: Studio A</span>
+                                <a href="#" class="work-btn">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro/Quote -->
+        <section class="intro-section">
+            <div class="container quote-box">
+                <div class="quote-icon">❝</div>
+                <p class="quote-text">“秋日之空，是夏天结束的信号，也是冬天开始的序曲。它将所有的色彩沉淀，只为在那一刻绽放。”</p>
+                <p class="quote-author">— 摘自《秋日之空》视觉艺术鉴赏集</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>关于资源获取与艺术鉴赏的解答</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何获取高清原画资源？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        我们平台收录了部分公开的插画作品，您可以直接在页面点击“查看详情”访问创作者的官方社交媒体或图站链接，获取高清原图。请注意尊重原作者版权。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>“秋日之空”指的是哪部作品？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        “秋日之空”通常指代日本视觉小说公司Age在2005年推出的同名作品，其标题寓意着故事发生的时间与氛围。本站以此为名，汇集了相关风格的唯美艺术作品。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>是否支持投稿作品？</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        是的，我们欢迎符合“唯美”、“治愈”、“日系风格”的原创插画或同人作品投稿。请通过页面底部的联系方式与我们取得联系。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于秋日之空</h4>
+                    <p style="color: #bdc3c7; font-size: 14px; line-height: 1.8;">
+                        我们是一个专注于日系唯美视觉艺术分享的社区，致力于收集和展示高质量的插画、原画与同人创作。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">分类浏览</a></li>
+                        <li><a href="#">热门榜单</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">Email: contact@skyautumn.art</a></li>
+                        <li><a href="#">Discord: 加入社区</a></li>
+                        <li><a href="#">Weibo: @秋日之空艺术站</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 秋日之空 Visual Arts. All Rights Reserved. 本站内容仅供学习与鉴赏，非商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
