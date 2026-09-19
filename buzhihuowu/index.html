@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="不知火舞之森林狂野漫画 - 在线阅读不知火舞同人漫画作品，探索森林背景下的冒险与战斗故事，提供高清图片阅读体验与最新章节更新。">
+    <meta name="keywords" content="不知火舞之森林狂野漫画, 不知火舞, 漫画, 同人, 热门漫画, 在线阅读">
+    <title>不知火舞之森林狂野漫画 - 热门同人漫画在线阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff0055;
+            --secondary-color: #ffcc00;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            background: transparent;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .search-box button {
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/mahjong/1200/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            margin-left: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Category Navigation */
+        .category-bar {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        .category-list {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-list li a {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category-list li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Manga Grid */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .manga-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* Aspect ratio for poster */
+            background-color: #2a2a2a;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .update-tag {
+            color: var(--secondary-color);
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .rank-list li {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-size: 20px;
+            font-weight: 800;
+            color: #333;
+            width: 25px;
+            text-align: center;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { color: #ffcc00; }
+        .rank-list li:nth-child(2) .rank-num { color: #c0c0c0; }
+        .rank-list li:nth-child(3) .rank-num { color: #cd7f32; }
+
+        .rank-title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+        }
+
+        .info-poster img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .info-text h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .info-desc {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .info-stats {
+            display: flex;
+            gap: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        .stat-item span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 50px 0 20px;
+            border-top: 1px solid #333;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .main-content { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-menu { display: none; } /* Simplified for mobile */
+            .header-inner { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">不知火舞<span>.漫画</span></a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门排行</a>
+                <a href="#">最新更新</a>
+                <a href="#">分类大全</a>
+                <a href="#">社区讨论</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索漫画...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="category-bar">
+        <div class="container">
+            <ul class="category-list">
+                <li><a href="#">全部</a></li>
+                <li><a href="#">格斗竞技</a></li>
+                <li><a href="#">异界冒险</a></li>
+                <li><a href="#">森林秘境</a></li>
+                <li><a href="#">同人衍生</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>不知火舞之森林狂野</h1>
+                <p>穿越至神秘的古老森林，不知火舞将面临前所未有的挑战。在这片充满野性与力量的土地上，她能否凭借高超的格斗技巧与智慧，揭开森林的秘密？</p>
+                <div>
+                    <a href="#" class="btn btn-primary">立即阅读</a>
+                    <a href="#" class="btn btn-outline">加入书架</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Column: Manga List -->
+            <div class="content-left">
+                <div class="section-title">
+                    <span>最新连载</span>
+                    <a href="#">查看更多 &gt;</a>
+                </div>
+                
+                <div class="manga-grid">
+                    <!-- Card 1 -->
+                    <article class="manga-card">
+                        <div class="card-cover">
+                            <span class="badge">更新中</span>
+                            <img src="https://picsum.photos/seed/mahjong1/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第一章：迷雾森林的呼唤</a></h3>
+                            <div class="card-meta">
+                                <span>格斗竞技</span>
+                                <span class="update-tag">2小时前</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="manga-card">
+                        <div class="card-cover">
+                            <span class="badge">热门</span>
+                            <img src="https://picsum.photos/seed/mahjong2/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第二章：遭遇暗影猎手</a></h3>
+                            <div class="card-meta">
+                                <span>异界冒险</span>
+                                <span class="update-tag">昨天</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="manga-card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/mahjong3/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第三章：武神的试炼</a></h3>
+                            <div class="card-meta">
+                                <span>热血战斗</span>
+                                <span class="update-tag">3天前</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="manga-card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/mahjong4/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第四章：失落的秘宝</a></h3>
+                            <div class="card-meta">
+                                <span>解谜探险</span>
+                                <span class="update-tag">1周前</span>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- Card 5 -->
+                     <article class="manga-card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/mahjong5/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第五章：森林深处的低语</a></h3>
+                            <div class="card-meta">
+                                <span>奇幻冒险</span>
+                                <span class="update-tag">1周前</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="manga-card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/mahjong6/300/420" alt="封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title"><a href="#">第六章：宿命的对手</a></h3>
+                            <div class="card-meta">
+                                <span>格斗竞技</span>
+                                <span class="update-tag">2周前</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <div class="section-title" style="font-size: 20px; border:none; padding:0; margin-bottom:15px;">
+                        <span>热门榜单</span>
+                    </div>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <a href="#" class="rank-title">不知火舞之森林狂野：起源</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <a href="#" class="rank-title">格斗女王：森林篇</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <a href="#" class="rank-title">拳皇同人：异界传说</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <a href="#" class="rank-title">暗影之拳：觉醒</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <a href="#" class="rank-title">极限格斗：生存游戏</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title" style="font-size: 20px; border:none; padding:0; margin-bottom:15px;">
+                        <span>热门标签</span>
+                    </div>
+                    <div class="info-tags">
+                        <a href="#" class="tag">不知火舞</a>
+                        <a href="#" class="tag">格斗</a>
+                        <a href="#" class="tag">同人</a>
+                        <a href="#" class="tag">森林</a>
+                        <a href="#" class="tag">冒险</a>
+                        <a href="#" class="tag">热血</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Intro / Info Section -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-poster">
+                    <img src="https://picsum.photos/seed/mahjonghero/400/600" alt="不知火舞之森林狂野 漫画介绍">
+                </div>
+                <div class="info-text">
+                    <h2>不知火舞之森林狂野</h2>
+                    <div class="info-tags">
+                        <span class="tag">格斗竞技</span>
+                        <span class="tag">异界冒险</span>
+                        <span class="tag">同人漫画</span>
+                        <span class="tag">连载中</span>
+                    </div>
+                    <p class="info-desc">
+                        在这个平行世界中，不知火舞意外被吸入了一片充满魔力与危险的古老森林。这里生活着各种奇异的生物，同时也潜伏着强大的魔兽。为了寻找回家的路，不知火舞必须与伙伴们并肩作战。本作以经典的格斗动作与森林探索相结合，展现了不知火舞坚韧不拔的意志与华丽的格斗技巧。
+                    </p>
+                    <div class="info-stats">
+                        <div class="stat-item">
+                            <strong>1.2M</strong>
+                            <span>总人气</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>8.9</strong>
+                            <span>评分</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>128</strong>
+                            <span>总章节数</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>45K</strong>
+                            <span>追读人数</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">阅读指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">设备支持</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>漫画分类</h4>
+                    <ul>
+                        <li><a href="#">日韩漫画</a></li>
+                        <li><a href="#">国产漫画</a></li>
+                        <li><a href="#">欧美漫画</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>法律声明</h4>
+                    <ul>
+                        <li><a href="#">版权隐私</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 不知火舞之森林狂野漫画网 版权所有 | 本站内容仅供学习交流使用</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
