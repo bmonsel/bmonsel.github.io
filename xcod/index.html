@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="xcode8 注释快捷键使用指南，详细介绍如何在 Xcode 8 中快速添加单行注释、多行注释、取消注释，以及针对不同编程语言（Swift, OC, C/C++）的快捷键操作技巧。">
+    <meta name="keywords" content="xcode8 注释快捷键, Xcode快捷键, Swift注释, Objective-C注释, 代码编辑技巧, Mac开发">
+    <title>xcode8 注释快捷键 - Xcode 8 高效代码编辑指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #007aff;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --border-radius: 12px;
+            --spacing-unit: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 0 var(--spacing-unit);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Reference Table */
+        .reference-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            padding: 40px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .shortcut-table th, .shortcut-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--bg-color);
+        }
+
+        .shortcut-table th {
+            font-weight: 600;
+            color: var(--text-secondary);
+            width: 30%;
+        }
+
+        .key-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .key-shortcut {
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Code Examples */
+        .code-block {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            font-family: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .code-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            border-bottom-left-radius: 8px;
+        }
+
+        .comment-line {
+            color: #6a9955;
+        }
+
+        .comment-block {
+            color: #6a9955;
+        }
+
+        /* Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .tip-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .tip-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .tip-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 16px;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .shortcut-table th, .shortcut-table td {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+            
+            .key {
+                font-size: 0.8rem;
+                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <span>&lt;/&gt;</span> Xcode速查
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">快捷键大全</a></li>
+                <li><a href="#">调试技巧</a></li>
+                <li><a href="#">Swift 3.0</a></li>
+                <li><a href="#">OC 基础</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h1>Xcode 8 注释快捷键</h1>
+        <p>掌握高效的代码注释技巧，提升开发效率，规范代码文档。本文详细解析 Xcode 8 中针对单行、多行及取消注释的快捷键操作。</p>
+    </section>
+
+    <section class="reference-section">
+        <h2 class="section-title">核心快捷键一览</h2>
+        <table class="shortcut-table">
+            <thead>
+                <tr>
+                    <th>操作类型</th>
+                    <th>快捷键组合</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>添加单行注释</td>
+                    <td>
+                        <div class="key-group">
+                            <span class="key">⌘</span>
+                            <span class="key key-shortcut">/</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>取消单行注释</td>
+                    <td>
+                        <div class="key-group">
+                            <span class="key">⌘</span>
+                            <span class="key key-shortcut">/</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>添加多行注释</td>
+                    <td>
+                        <div class="key-group">
+                            <span class="key">⌥</span>
+                            <span class="key key-shortcut">⌘</span>
+                            <span class="key key-shortcut">/</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>取消多行注释</td>
+                    <td>
+                        <div class="key-group">
+                            <span class="key">⌥</span>
+                            <span class="key key-shortcut">⌘</span>
+                            <span class="key key-shortcut">/</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+            <strong>提示：</strong> 在 Mac 键盘上，<code>⌘</code> (Command) 键通常位于空格键下方，<code>⌥</code> (Option) 键位于左右 Shift 键下方。
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">操作详解与示例</h2>
+        
+        <article>
+            <h3>1. 单行注释</h3>
+            <p>单行注释用于快速标记代码行，方便开发者跳过或解释单行逻辑。在 Xcode 8 中，选中目标代码行，按下快捷键即可在行首添加 <code>//</code>。</p>
+            
+            <div class="code-block">
+                <span class="code-label">Swift 示例</span>
+                <span class="comment-line">// 这是一个被注释掉的变量</span>
+                <span style="color: #569cd6;">let</span> <span style="color: #9cdcfe;">userName</span> = <span style="color: #ce9178;">"Developer"</span>
+            </div>
+
+            <p><strong>应用场景：</strong> 临时注释掉某行调试代码，或为关键逻辑添加说明。</p>
+        </article>
+
+        <article style="margin-top: 40px;">
+            <h3>2. 多行注释</h3>
+            <p>多行注释用于对大段代码区域进行整体屏蔽。选中多行代码后，按下 <code>⌥⌘/</code>，Xcode 会自动在选中区域的开始和结束位置添加 <code>/* ... */</code>。</p>
+            
+            <div class="code-block">
+                <span class="code-label">Objective-C 示例</span>
+                <span style="color: #569cd6;">/*</span>
+                <span style="color: #569cd6;">* 下面这段逻辑暂时不需要执行</span>
+                <span style="color: #569cd6;">* NSLog(@"Debug info");</span>
+                <span style="color: #569cd6;">*/</span>
+                <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">result</span> = <span style="color: #b5cea8;">10</span>;
+            </div>
+        </article>
+
+        <article style="margin-top: 40px;">
+            <h3>3. 快速取消注释</h3>
+            <p>无论当前代码是单行还是多行注释，只需再次按下对应的快捷键即可恢复原状。这是代码调试时最常用的组合。</p>
+        </article>
+    </section>
+
+    <section class="tips-grid">
+        <div class="tip-card">
+            <h3>多光标编辑</h3>
+            <p>在 Xcode 8 中，利用 <code>⌥ + 点击</code> 或 <code>⌘ + D</code> 可以选中多个相同的单词，然后批量添加注释，极大提升批量处理效率。</p>
+        </div>
+        <div class="tip-card">
+            <h3>智能注释格式</h3>
+            <p>Xcode 支持自动格式化。添加注释后，光标会自动定位在注释符后，方便直接输入说明文字。</p>
+        </div>
+        <div class="tip-card">
+            <h3>代码折叠</h3>
+            <p>注释不仅用于解释，也可以利用 <code>/* ... */</code> 包裹代码块并右键折叠，使代码视图更加清爽。</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2017-2024 Xcode速查指南. 仅供学习参考，帮助开发者提升效率。</p>
+</footer>
+
+</body>
+</html>
